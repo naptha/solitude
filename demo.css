@@ -1,0 +1,161 @@
+/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+u { text-decoration: underline; }
+
+menu {
+  font-size: 12px;
+  min-width: 180px;
+  position: absolute;
+}
+
+menu {
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, .20);
+  background: white;
+  border-radius: 2px;
+  color: black;
+  cursor: default;
+
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /*outline: 1px solid rgba(0, 0, 0, 0.2);*/
+  padding: 8px 0;
+  position: fixed;
+  white-space: nowrap;
+
+}
+
+
+menu > * {
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  text-align: start;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+menu > :not(hr) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: 0;
+  color: black;
+  font-style: normal;
+  line-height: 18px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 20px;
+  padding-right: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+menu > hr {
+  background: -webkit-linear-gradient(left,
+                                      rgba(0, 0, 0, .10),
+                                      rgba(0, 0, 0, .02) 96%);
+  background: -moz-linear-gradient(left,
+                                      rgba(0, 0, 0, .10),
+                                      rgba(0, 0, 0, .02) 96%);
+  background: -ms-linear-gradient(left,
+                                      rgba(0, 0, 0, .10),
+                                      rgba(0, 0, 0, .02) 96%);
+  background: linear-gradient(left,
+                                      rgba(0, 0, 0, .10),
+                                      rgba(0, 0, 0, .02) 96%);
+  border: 0;
+  height: 1px;
+  margin: 5px 0;
+}
+
+menu > .gray {
+  color: rgba(0, 0, 0, .3);
+}
+
+
+menu small {
+  color: rgba(0, 0, 0, .4);
+  font-size: 70%;
+}
+
+menu > .halfgray {
+  color: rgba(12, 57, 138, 0.6);
+  /*rgba(43, 73, 126, 0.6)*/
+}
+
+
+
+menu > .ideal {
+  font-weight: bold;
+}
+
+menu > [hidden] {
+  display: none;
+}
+
+menu > :not(hr)[selected] {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+menu > :not(hr)[selected]:active {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+menu > [checked]::before {
+  content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI5IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIHN0cm9rZT0ibm9uZSIgZD0ibTEuMTkzMzMsNS40NzM1NmwyLjI4OTk1LDEuOTI0MDdsNC4zNTkwOSwtNC4wMDM0OGwtMC4wMTE2MSwtMi4wNjc0OGwtNC4yNjYwOCwzLjkzMTc4bC0yLjM3MTM1LC0xLjgyODQ1IiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+');
+  display: inline-block;
+  height: 9px;
+  margin: 0 5px;
+  width: 10px;
+}
+
+menu > .disabled[checked]::before {
+  opacity: 0.3;
+}
+
+menu > .default[checked]::before {
+  opacity: 0.5;
+}
+
+menu > .dropdown::before {
+  content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB3aWR0aD0iNHB4IiBoZWlnaHQ9IjdweCIgdmlld0JveD0iMCAwIDQgNyIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNCA3IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBvbHlnb24gZmlsbD0iIzMzMzMzMyIgcG9pbnRzPSIzLjczMywzLjUgMCw3IDAsMCAiLz4KCjwvc3ZnPgo=');
+  display: inline-block;
+  height: 9px;
+  /*margin: -25px 5px;*/
+  margin: 0 -7px;
+  width: 4px;
+  float: right;
+  position: relative;
+  /*top: 5px;*/
+}
+
+
+menu > [checked] {
+  padding-left: 0;
+}
+
+
+  menu .credits-button {
+    float: right;
+    color: white;
+    margin-top: 1px;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 4px;
+    line-height: normal;
+    font-size: 80%;
+    margin-right: -5px;
+  }
+
+
+  menu .credits-button {
+    background: rgba(0, 128, 0, 0.3);
+  }

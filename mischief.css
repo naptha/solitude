@@ -1,0 +1,49 @@
+body {
+  margin: 50px;
+
+}
+* {
+  font-family: Avenir !important;
+}
+p {
+  font-size: 20pt;
+}
+evil {
+  color: green;
+}
+/* props to http://strategyandanalytics.com/life-expectancy-age/ for this evil*/
+button, input[type=button], input[type=reset], input[type=submit] {
+  padding: 13px 25px;
+  margin: 0;
+  text-align: center;
+  display: inline;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  background: #4773ca;
+  background: -moz-linear-gradient(top, #5c96da, #4c7bcd 50%, #4672ca 50%, #3251bb);
+  background: -webkit-linear-gradient(top, #5c96da, #4c7bcd 50%, #4672ca 50%, #3251bb);
+  background: linear-gradient(to bottom, #5c96da, #4c7bcd 50%, #4672ca 50%, #3251bb);
+  width: auto;
+  border: 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+/* http://www.avclub.com/article/college-campus-police-save-students-from-threat-of-62346 */
+html, button, input, select, textarea {
+  font-family: sans-serif;
+}
+
+* {
+  text-transform: uppercase !important;
+  background: rgb(255, 223, 255) !important;
+}
+
+button {
+  padding: 15px !important;
+}
