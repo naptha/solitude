@@ -12,6 +12,7 @@ function get_style(name, prop){
 	// return a == b ? a : 'inherit';
 }
 
+console.time('start')
 var elements = [];
 rules.forEach(function(rule, ruleindex){
 	var selectors = rule[0];
@@ -28,49 +29,38 @@ rules.forEach(function(rule, ruleindex){
 				}
 			}
 			if(!exists){
-				var depth = 0, k = matches[i];
-				while(k != scope){
-					k = k.parentNode;
-					depth++;
-				}
 				elements.push({
 					el: matches[i],
-					m: [ruleindex],
-					d: depth
+					m: [ruleindex]
 				})
 			}
 		}
 	})
 })
 
-
-elements.sort(function(a, b){
-	return a.d - b.d
-}).forEach(function(obj){
+elements.forEach(function(obj){
 	var el = obj.el;
 	var style = getComputedStyle(el);
 	var applied = [];
-
-	// console.log(style)
-
+	function push_rule(prop, val){
+		var decl = prop + ":" + val + "!important";
+		if(prop && val && applied.indexOf(decl) == -1) applied.push(decl);
+	}
 	for(var j = 0; j < style.length; j++){
 		var name = style[j]
 		var defval = get_style(el.tagName, name),
 			curval = style.getPropertyValue(name);
-		// console.log(name, curval)
 		if(curval != defval){
-			// if(defval) applied[name] = defval;
-			if(defval) applied.push(name + ":" + defval + " !important");
+			push_rule(name, defval)
+			// if(defval) applied.push(name + ":" + defval + " !important");
 		}
 	}
 
 	obj.m.forEach(function(ruleindex){
-		// console.log(ruleindex, rules[ruleindex])
 		var declarations = rules[ruleindex][1];
 		declarations.forEach(function(prop){
-			if(prop[1]) 
-				applied.push(prop[0]+":" +prop[1]+" !important");
-			// applied[prop[0]] = prop[1]
+			push_rule(prop[0], prop[1])
+			// if(prop[1]) applied.push(prop[0]+":" +prop[1]+" !important");
 		})
 	})
 	
@@ -79,12 +69,12 @@ elements.sort(function(a, b){
 		var colon = prop.indexOf(':');
 		var name = prop.slice(0, colon), 
 			val = prop.slice(colon + 1).replace('!important', '').replace(/\s+/g, ' ').trim();
-		// applied[name] = val;
 		if(name && val)
-			applied.push(name + ":" + val + " !important");
+			push_rule(name, val);
+			// applied.push(name + ":" + val + " !important");
 	})
 
 	el.setAttribute('style', applied.join(';'))
-	// console.log(rule, matches)
 })
+console.timeEnd('start')
 console.log(scope)

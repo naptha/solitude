@@ -19,6 +19,10 @@ for rule in rules
   if any(sel.match(/\:\:(before|after|first\-letter|first\-line)/) for sel in rule.selectors)
     # these aren't injectable by solitude
     console.log rule
+    for decl in rule.declarations when decl.type is 'declaration'
+      if decl.value.indexOf('!important') == -1
+        decl.value += ' !important'
+      decl.value = decl.value.replace(/\s+/g, ' ').trim()
     remaining_rules.push rule
     
 
@@ -28,7 +32,7 @@ for rule in rules
 
     js_rules.push [
       rule.selectors,
-      [decl.property, decl.value] for decl in rule.declarations when decl.type is 'declaration'
+      [decl.property, decl.value.replace(/\s+/g, ' ').trim()] for decl in rule.declarations when decl.type is 'declaration'
     ]
       
     console.log rule.selectors, rule.declarations

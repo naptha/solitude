@@ -83,6 +83,12 @@ menu > hr {
   margin: 5px 0;
 }
 
+
+menu > .halfgray, menu > .halfgray * {
+  color: rgba(12, 57, 138, 0.6);
+}
+
+
 menu > .gray {
   color: rgba(0, 0, 0, .3);
 }
@@ -91,11 +97,6 @@ menu > .gray {
 menu small {
   color: rgba(0, 0, 0, .4);
   font-size: 70%;
-}
-
-menu > .halfgray {
-  color: rgba(12, 57, 138, 0.6);
-  /*rgba(43, 73, 126, 0.6)*/
 }
 
 

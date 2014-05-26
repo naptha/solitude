@@ -215,19 +215,19 @@ rules = [
 		[
 			[
 				"background",
-				"-webkit-linear-gradient(left,\n                                      rgba(0, 0, 0, .10),\n                                      rgba(0, 0, 0, .02) 96%)"
+				"-webkit-linear-gradient(left, rgba(0, 0, 0, .10), rgba(0, 0, 0, .02) 96%)"
 			],
 			[
 				"background",
-				"-moz-linear-gradient(left,\n                                      rgba(0, 0, 0, .10),\n                                      rgba(0, 0, 0, .02) 96%)"
+				"-moz-linear-gradient(left, rgba(0, 0, 0, .10), rgba(0, 0, 0, .02) 96%)"
 			],
 			[
 				"background",
-				"-ms-linear-gradient(left,\n                                      rgba(0, 0, 0, .10),\n                                      rgba(0, 0, 0, .02) 96%)"
+				"-ms-linear-gradient(left, rgba(0, 0, 0, .10), rgba(0, 0, 0, .02) 96%)"
 			],
 			[
 				"background",
-				"linear-gradient(left,\n                                      rgba(0, 0, 0, .10),\n                                      rgba(0, 0, 0, .02) 96%)"
+				"linear-gradient(left, rgba(0, 0, 0, .10), rgba(0, 0, 0, .02) 96%)"
 			],
 			[
 				"border",
@@ -240,6 +240,18 @@ rules = [
 			[
 				"margin",
 				"5px 0"
+			]
+		]
+	],
+	[
+		[
+			"menu > .halfgray",
+			"menu > .halfgray *"
+		],
+		[
+			[
+				"color",
+				"rgba(12, 57, 138, 0.6)"
 			]
 		]
 	],
@@ -266,17 +278,6 @@ rules = [
 			[
 				"font-size",
 				"70%"
-			]
-		]
-	],
-	[
-		[
-			"menu > .halfgray"
-		],
-		[
-			[
-				"color",
-				"rgba(12, 57, 138, 0.6)"
 			]
 		]
 	],
