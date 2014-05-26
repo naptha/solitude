@@ -150,21 +150,21 @@ menu > [checked] {
 }
 
 
-  menu .credits-button {
-    float: right;
-    color: white;
-    margin-top: 1px;
-    padding-right: 4px;
-    padding-left: 4px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-radius: 4px;
-    line-height: normal;
-    font-size: 80%;
-    margin-right: -5px;
-  }
+menu .credits-button {
+  float: right;
+  color: white;
+  margin-top: 1px;
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 4px;
+  line-height: normal;
+  font-size: 80%;
+  margin-right: -5px;
+}
 
 
-  menu .credits-button {
-    background: rgba(0, 128, 0, 0.3);
-  }
+menu .credits-button {
+  background: rgba(0, 128, 0, 0.3);
+}

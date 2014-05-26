@@ -18,6 +18,7 @@ rules.forEach(function(rule, ruleindex){
 	selectors.forEach(function(selector){
 		var matches = scope.querySelectorAll(selector)
 		for(var i = 0; i < matches.length; i++){
+			
 			var exists = false;
 			for(var j = 0; j < elements.length; j++){
 				if(elements[j].el === matches[i]){
@@ -27,29 +28,37 @@ rules.forEach(function(rule, ruleindex){
 				}
 			}
 			if(!exists){
+				var depth = 0, k = matches[i];
+				while(k != scope){
+					k = k.parentNode;
+					depth++;
+				}
 				elements.push({
 					el: matches[i],
-					m: [ruleindex]
+					m: [ruleindex],
+					d: depth
 				})
 			}
 		}
 	})
 })
 
-elements.forEach(function(obj){
+
+elements.sort(function(a, b){
+	return a.d - b.d
+}).forEach(function(obj){
 	var el = obj.el;
 	var style = getComputedStyle(el);
 	var applied = [];
 
-
-	console.log(style)
+	// console.log(style)
 
 	for(var j = 0; j < style.length; j++){
 		var name = style[j]
 		var defval = get_style(el.tagName, name),
 			curval = style.getPropertyValue(name);
 		// console.log(name, curval)
-		if(!(name in applied) && curval != defval){
+		if(curval != defval){
 			// if(defval) applied[name] = defval;
 			if(defval) applied.push(name + ":" + defval + " !important");
 		}
@@ -64,8 +73,7 @@ elements.forEach(function(obj){
 			// applied[prop[0]] = prop[1]
 		})
 	})
-
-
+	
 	// TODO: support rules which have ; inside a string or something
 	;(el.getAttribute('style') || '').split(';').forEach(function(prop){
 		var colon = prop.indexOf(':');
@@ -75,13 +83,7 @@ elements.forEach(function(obj){
 		if(name && val)
 			applied.push(name + ":" + val + " !important");
 	})
-// Object.keys(applied).filter(function(name){
-	// 	// return applied[name] != 'inherit' && applied[name] != 'auto'
-	// 	// return true
-	// 	return applied[name] && name
-	// }).map(function(name){
-	// 	return name + ":" + applied[name] + " !important"
-	// }
+
 	el.setAttribute('style', applied.join(';'))
 	// console.log(rule, matches)
 })
