@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="a">derp</div>
+    <span id="b">merp</span>
+    <script>
+      var a = document.getElementById('a'),
+          b = document.getElementById('b');
+      var as = getComputedStyle(a),
+          bs = getComputedStyle(b);
+
+      console.log(as.length, bs.length)
+      for(var i = 0; i < as.length; i++){
+        var prop = as[i];
+        var ap = as.getPropertyValue(prop),
+            bp = bs.getPropertyValue(prop);
+        // console.log(prop, ap, bp)
+        if(ap != bp){
+          console.log(prop, ap, bp)
+        }else{
+          // console.log(prop, ap)
+        }
+      }
+    </script>
+  </body>
+</html>
