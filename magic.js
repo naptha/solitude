@@ -12,7 +12,7 @@ function get_style(name, prop){
 	// return a == b ? a : 'inherit';
 }
 
-console.time('start')
+console.time('get el')
 var elements = [];
 rules.forEach(function(rule, ruleindex){
 	var selectors = rule[0];
@@ -37,7 +37,8 @@ rules.forEach(function(rule, ruleindex){
 		}
 	})
 })
-
+console.timeEnd('get el')
+console.time('start')
 elements.forEach(function(obj){
 	var el = obj.el;
 	var style = getComputedStyle(el);
@@ -46,13 +47,23 @@ elements.forEach(function(obj){
 		var decl = prop + ":" + val + "!important";
 		if(prop && val && applied.indexOf(decl) == -1) applied.push(decl);
 	}
+	// style.cssText
+	// .split(';').forEach(function(prop){
+	// 	var colon = prop.indexOf(':');
+	// 	var name = prop.slice(0, colon), 
+	// 		val = prop.slice(colon + 1).replace('!important', '').replace(/\s+/g, ' ').trim();
+	// 	var defval = get_style(el.tagName, name);
+	// 	if(val != defval){
+	// 		push_rule(name, defval)
+	// 	}
+	// })
+
 	for(var j = 0; j < style.length; j++){
 		var name = style[j]
 		var defval = get_style(el.tagName, name),
 			curval = style.getPropertyValue(name);
 		if(curval != defval){
 			push_rule(name, defval)
-			// if(defval) applied.push(name + ":" + defval + " !important");
 		}
 	}
 
@@ -60,7 +71,6 @@ elements.forEach(function(obj){
 		var declarations = rules[ruleindex][1];
 		declarations.forEach(function(prop){
 			push_rule(prop[0], prop[1])
-			// if(prop[1]) applied.push(prop[0]+":" +prop[1]+" !important");
 		})
 	})
 	
